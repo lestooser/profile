@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131a">
+  <meta name="description" content="Портфолио Максима Бежнаря: Data Engineering, Python-разработка, ETL, аналитика данных и автоматизация.">
+  <title>Максим Бежнарь — Портфолио</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10131a;
+      --panel: #171c26;
+      --panel-2: #1c2330;
+      --text: #eef2f8;
+      --muted: #a5afc0;
+      --line: rgba(255,255,255,.10);
+      --accent: #8be9c5;
+      --accent-2: #8cb8ff;
+      --radius: 22px;
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(87, 132, 255, .12), transparent 34rem),
+        radial-gradient(ellipse at 95% 18%, rgba(77, 220, 173, .08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 24px 0; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { font-weight: 750; letter-spacing: -.03em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { padding: 84px 0 70px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: .82rem; text-transform: uppercase; letter-spacing: .13em; font-weight: 750; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: .99; letter-spacing: -.065em; margin: 22px 0 24px; max-width: 850px; }
+    h1 .accent { color: var(--accent); }
+    .intro { max-width: 720px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); margin: 0; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 17px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; font-weight: 650; font-size: .94rem; transition: transform .18s ease, border-color .18s ease; }
+    .button:hover { transform: translateY(-2px); border-color: rgba(139,233,197,.55); }
+    .button.primary { background: var(--accent); color: #0d1715; border-color: var(--accent); }
+    .section { padding: 36px 0 70px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -.045em; line-height: 1.1; margin: 0; }
+    .section-head p { max-width: 460px; color: var(--muted); margin: 0; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project { position: relative; overflow: hidden; padding: 26px; background: linear-gradient(145deg, rgba(255,255,255,.045), transparent 60%), var(--panel); border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; min-height: 100%; }
+    .project::after { content: ""; position: absolute; width: 160px; height: 160px; right: -90px; top: -90px; border: 1px solid rgba(139,233,197,.14); border-radius: 50%; box-shadow: 0 0 0 22px rgba(139,233,197,.025), 0 0 0 44px rgba(139,233,197,.02); pointer-events: none; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .number { color: var(--accent); font: 700 .82rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+    .kind { border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; color: var(--muted); font-size: .76rem; white-space: nowrap; }
+    h3 { font-size: 1.35rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 12px; }
+    .project p { color: var(--muted); margin: 0 0 18px; }
+    .project h4 { font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: #d7e0ed; margin: 7px 0 10px; }
+    .bullets { padding-left: 18px; color: var(--muted); margin: 0 0 20px; }
+    .bullets li { padding-left: 3px; margin: 5px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 8px; }
+    .tag { color: #cbd5e4; background: rgba(255,255,255,.045); border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; font: 500 .78rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .project-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 21px; }
+    .project-links a { color: var(--accent); text-decoration: none; font-weight: 650; font-size: .9rem; }
+    .project-links a:hover { text-decoration: underline; }
+    .outcome { margin-top: 20px; padding: 13px 15px; border-left: 2px solid var(--accent); background: rgba(139,233,197,.055); border-radius: 0 10px 10px 0; color: #dce9e6; font-size: .92rem; }
+    .stack-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .stack-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .stack-card h3 { font-size: 1.08rem; margin-bottom: 14px; }
+    .stack-card p { color: var(--muted); margin: 0; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: start; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(120deg, rgba(140,184,255,.08), transparent 65%), var(--panel); }
+    .about p { color: var(--muted); margin: 0 0 14px; }
+    .about p:last-child { margin-bottom: 0; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-inner a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 760px) {
+      .hero { padding: 55px 0 48px; }
+      .projects, .stack-panel, .about { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .project { padding: 22px; }
+      .nav { align-items: start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="На главную">MB<span>.</span></a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="#projects">Проекты</a>
+        <a href="#stack">Технологии</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="eyebrow">Portfolio / 2026</div>
+      <h1>Максим Бежнарь.<br><span class="accent">Данные, Python,</span><br>автоматизация.</h1>
+      <p class="intro">Разрабатываю инструменты обработки данных и автоматизации: от сбора и нормализации данных до API, аналитических витрин и систем фоновых задач.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#projects">Смотреть проекты <span aria-hidden="true">↘</span></a>
+        <a class="button" href="https://github.com/lestooser" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="button" href="mailto:lestooser@mail.ru">Написать мне ↗</a>
+      </div>
+    </section>
+
+    <section class="section wrap" id="projects">
+      <div class="section-head">
+        <h2>Избранные проекты</h2>
+        <p>Практические решения для аналитики данных, обработки файлов и автоматизации процессов.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-top"><span class="number">01 / AUTOMATION</span><span class="kind">VBA · Excel</span></div>
+          <h3>Автоматизация отчётности и документооборота</h3>
+          <p>Инструмент для автоматизации рутинной отчётности в условиях ограниченных ресурсов и отсутствия доступа к внешним системам.</p>
+          <h4>Что реализовано</h4>
+          <ul class="bullets">
+            <li>Проектирование и внедрение автоматизированного процесса формирования отчётов.</li>
+            <li>Автоматизация проверки отчётности с помощью VBA и макросов Excel.</li>
+            <li>Снижение объёма ручных операций и риска человеческих ошибок.</li>
+          </ul>
+          <div class="tags"><span class="tag">VBA</span><span class="tag">Excel Macros</span><span class="tag">Process Automation</span></div>
+          <div class="outcome"><strong>Результат:</strong> время формирования и проверки отчётов сократилось с нескольких дней до 10–15 минут. По резюме, решение продолжает использоваться подразделением.</div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="number">02 / DATA ENGINEERING</span><span class="kind">ETL · Streaming</span></div>
+          <h3>Платформа сбора и аналитики пользовательских данных</h3>
+          <p>Двухкомпонентная система для работы с историческими данными и событиями, поступающими в реальном времени.</p>
+          <h4>Что реализовано</h4>
+          <ul class="bullets">
+            <li>ETL-пайплайн: извлечение данных из внешнего API, нормализация вложенных JSON-структур и загрузка в PostgreSQL.</li>
+            <li>Асинхронный сервис на FastAPI для приёма пользовательских событий.</li>
+            <li>Очередь asyncio, валидация данных и хранение полуструктурированных событий в JSONB.</li>
+            <li>Аналитические витрины для когортного анализа и оценки пользовательских метрик; визуализация KPI в Power BI.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">PostgreSQL</span><span class="tag">JSONB</span><span class="tag">FastAPI</span><span class="tag">asyncio</span><span class="tag">Power BI</span></div>
+          <div class="project-links">
+            <a href="https://github.com/lestooser/DotaSQL" target="_blank" rel="noopener noreferrer">DotaSQL ↗</a>
+            <a href="https://github.com/lestooser/GSI_API" target="_blank" rel="noopener noreferrer">GSI_API ↗</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="number">03 / IMAGE PROCESSING</span><span class="kind">Python · OpenCV</span></div>
+          <h3>Оркестратор обработки медиафайлов</h3>
+          <p>Система массовой обработки изображений с поддержкой параллельных пользовательских запросов и несколькими конвейерами обработки.</p>
+          <h4>Что реализовано</h4>
+          <ul class="bullets">
+            <li>Локальный конвейер обработки изображений с OpenCV и imagehash.</li>
+            <li>Отдельный конвейер автоматизации взаимодействия с веб-сервисами через Selenium.</li>
+            <li>Архитектура Orchestrator–Worker с очередью задач и настраиваемым лимитом параллелизма.</li>
+            <li>Управление состояниями задач, таймауты и очистка временных директорий.</li>
+            <li>Пошаговые уведомления пользователя через Telegram Bot API.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">imagehash</span><span class="tag">Threading</span><span class="tag">Queue</span><span class="tag">Selenium</span><span class="tag">Telegram Bot API</span></div>
+          <div class="project-links"><a href="https://github.com/lestooser/selenium-test" target="_blank" rel="noopener noreferrer">Репозиторий ↗</a></div>
+          <div class="outcome"><strong>Результат:</strong> MVP для обработки запросов через очередь с контролем параллельности и управлением временными ресурсами.</div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="number">04 / BROWSER AUTOMATION</span><span class="kind">Orchestration</span></div>
+          <h3>Оркестратор фоновых задач браузерной автоматизации</h3>
+          <p>Система управления изолированными процессами и автоматизированными веб-задачами с контролем состояния и восстановлением после сбоев.</p>
+          <h4>Что реализовано</h4>
+          <ul class="bullets">
+            <li>Архитектура Orchestrator–Worker для управления несколькими исполнителями.</li>
+            <li>Синхронизация состояния задач и ограничение параллельной работы.</li>
+            <li>Восстановление браузерных сессий через CDP и автоматический перезапуск упавших воркеров.</li>
+            <li>Уведомления в Telegram о критических событиях.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Threading</span><span class="tag">JSON</span><span class="tag">REST API</span><span class="tag">Telegram Bot API</span></div>
+          <div class="project-links"><a href="https://github.com/lestooser/browser_vision_api" target="_blank" rel="noopener noreferrer">Репозиторий ↗</a></div>
+          <div class="outcome"><strong>Результат:</strong> автономный MVP с несколькими активными потоками и механизмами восстановления после сбоев сети или внешних сервисов.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="stack">
+      <div class="section-head">
+        <h2>Технологии</h2>
+        <p>Инструменты, которые использовались в проектах или указаны в резюме как рабочие навыки.</p>
+      </div>
+      <div class="stack-panel">
+        <div class="stack-card">
+          <h3>Data Engineering & Backend</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">JSONB</span><span class="tag">FastAPI</span><span class="tag">asyncio</span><span class="tag">REST API</span><span class="tag">ETL</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>Автоматизация & Обработка</h3>
+          <div class="tags">
+            <span class="tag">OpenCV</span><span class="tag">imagehash</span><span class="tag">Selenium</span><span class="tag">Threading</span><span class="tag">Queue</span><span class="tag">Telegram Bot API</span><span class="tag">VBA</span><span class="tag">Excel</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>Аналитика</h3>
+          <div class="tags">
+            <span class="tag">Power BI</span><span class="tag">Когортный анализ</span><span class="tag">A/B-тесты</span><span class="tag">Продуктовые метрики</span><span class="tag">Jupyter Notebook</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>Инструменты & Среда</h3>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">Redis</span><span class="tag">JSON</span>
+          </div>
+          <p style="margin-top:12px;font-size:.88rem">ClickHouse, Kafka, Spark и Airflow указаны в резюме как технологии, с которыми знаком.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="about">
+      <div class="about">
+        <div>
+          <div class="eyebrow">About</div>
+          <h2 style="margin-top:15px">Инженерный подход к задачам</h2>
+        </div>
+        <div>
+          <p>Мой основной фокус — Python-разработка и инженерия данных: сбор, преобразование и хранение информации, разработка API и автоматизация повторяющихся процессов.</p>
+          <p>В проектах уделяю внимание не только обработке данных, но и организации выполнения задач: очередям, ограничению параллелизма, состояниям процессов и восстановлению после ошибок.</p>
+          <p>Также имею опыт продуктовой аналитики — от расчёта пользовательских метрик и когортного анализа до подготовки аналитических витрин и визуализации KPI.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts">
+    <div class="wrap footer-inner">
+      <span>© 2026 Максим Бежнарь</span>
+      <span><a href="https://github.com/lestooser" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="mailto:lestooser@mail.ru">lestooser@mail.ru</a> · <a href="https://t.me/MaxBezhnar" target="_blank" rel="noopener noreferrer">Telegram</a></span>
+    </div>
+  </footer>
+</body>
+</html>
